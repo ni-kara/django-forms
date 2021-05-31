@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %} Registration {% endblock %}
+{% block title %} Login {% endblock %}
 
 {% block content %}
     <h1> Login </h1>
-   
+    <form action="/login" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Log In">
+    </form>
+    <div>
+        {% for message in messages %}
+         <h4 style="color:red"> * {{ message}} </h4>
+        {% endfor%}
+    </div>
 {% endblock%}
