@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
 {% block title %} Dashboard {% endblock %}
-
-<h1> Dashboard = </h1>
+{% block content %}
+    {% if user.is_authenticated %}    
+        <h1> Dashboard </h1>
+        <div>
+            Hello, {{user.username}}
+        </div>
+    {% else %}
+        <h4> User without credentials </h4>
+    {% endif %}
+{% endblock%}
