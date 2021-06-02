@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1> Registration </h1>
-    <form action="/" method="POST">
+    <form action="{% url 'registration' %}" method="POST">
         {% csrf_token %}
         <input type="text" name="username" placeholder="username">
         <input type="email" name="email" placeholder="email">
